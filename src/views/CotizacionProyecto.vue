@@ -74,6 +74,9 @@ const SubTotal = computed(() => {
 const Itbis = computed(() => SubTotal.value * 0.18);
 
 const Total = computed(() => SubTotal.value + Itbis.value);
+const TotalUSD = computed(() =>
+  currentItem.dolar === 0 ? 0 : Total.value / currentItem.dolar
+);
 
 const agregar = () => {
   items.value.push({ ...currentItem });
@@ -417,6 +420,12 @@ const print = () => {
               Total:
               <span class="font-normal">{{ formatDOP(Total) || "" }}</span>
             </span>
+            <span>
+              Total USD:
+              <span class="font-normal">{{
+                formatDOP(TotalUSD, "USD") || ""
+              }}</span>
+            </span>
           </div>
         </div>
 
@@ -454,8 +463,8 @@ const print = () => {
             >
               Importante:
               <span class="font-normal break-words whitespace-pre-wrap">
-                Esta cotización tiene valides durante 30 días, a partir de ser
-                impresa.
+                Esta cotización tiene validez durante 30 días, a partir de ser
+                emitida.
               </span>
             </span>
           </div>
