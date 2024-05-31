@@ -63,17 +63,20 @@ const formatDOP = (value: number, currency = "DOP") => {
   return formatter.format(value);
 };
 
-const SubTotal = computed(() => {
+const TotalRaw = computed(() => {
   const totalItems = items.value.reduce((prev, curr) => {
-    return prev + curr.cantidad * curr.precio;
+    return (prev + curr.cantidad) * curr.precio;
   }, 0);
 
   return totalItems;
 });
 
-const Itbis = computed(() => SubTotal.value * 0.18);
+const Itbis = computed(() => TotalRaw.value * 0.18);
 
-const Total = computed(() => SubTotal.value + Itbis.value);
+const SubTotal = computed(() => TotalRaw.value - Itbis.value);
+
+const Total = computed(() => TotalRaw.value);
+
 const TotalUSD = computed(() =>
   currentItem.dolar === 0 ? 0 : Total.value / currentItem.dolar
 );
