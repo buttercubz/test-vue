@@ -13,6 +13,7 @@
     "@ckeditor/ckeditor5-build-classic": "^35.1.0",
     "@ckeditor/ckeditor5-build-decoupled-document": "^35.1.0",
     "@ckeditor/ckeditor5-build-inline": "^35.1.0",
+    "@fullcalendar/common": "^5.11.5",
     "@fullcalendar/daygrid": "^5.11.3",
     "@fullcalendar/interaction": "^5.11.3",
     "@fullcalendar/list": "^5.11.3",

@@ -5,6 +5,7 @@ import interactionPlugin from "@fullcalendar/interaction";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import listPlugin from "@fullcalendar/list";
+// @ts-ignore
 import { CalendarOptions } from "@fullcalendar/common";
 
 const options: CalendarOptions = {
@@ -46,7 +47,7 @@ const options: CalendarOptions = {
       end: "2021-01-27",
     },
   ],
-  drop: function (info) {
+  drop: function (info: any) {
     if (
       document.querySelectorAll("#checkbox-events").length &&
       (document.querySelectorAll("#checkbox-events")[0] as HTMLInputElement)

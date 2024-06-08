@@ -65,7 +65,7 @@ const formatDOP = (value: number, currency = "DOP") => {
 
 const TotalRaw = computed(() => {
   const totalItems = items.value.reduce((prev, curr) => {
-    return (prev + curr.cantidad) * curr.precio;
+    return prev + (curr.cantidad * curr.precio);
   }, 0);
 
   return totalItems;
